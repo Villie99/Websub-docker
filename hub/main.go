@@ -57,10 +57,10 @@ func (hub *Hub) handleWebSub(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if !hub.verifyIntent(callback, topic, mode) {
+	/*if !hub.verifyIntent(callback, topic, mode) {
 		http.Error(w, "Wrong with verification", http.StatusBadRequest)
 		return
-	}
+	}*/
 
 	hub.updateSubscribers(topic, callback, secret, mode == "subscribe")
 	w.Header().Set("Content-Type", "text/plain")
